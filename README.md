@@ -197,6 +197,8 @@ boss hr jobs list                     # 我发布的职位（只读）
 
 涉及 Cookie、CDP、patchright、真实账号、请求频率或平台接口漂移的问题，请先阅读 [平台风险边界](docs/platform-risk.md)。
 
+Windows 用户如果遇到 `uv` / `patchright` 命令不可用、Chromium 下载失败、扫码后 `Timeout 30000ms exceeded`、或 `--cookie-source edge/chrome` 仍然降级打开 Chromium，请先阅读 [Windows 登录与安装排障](docs/windows-login-troubleshooting.md)。
+
 <details>
 <summary>📖 CDP 启动示例</summary>
 
@@ -522,6 +524,8 @@ boss doctor --live-probe
 
 <details>
 <summary>📖 常见问题修复</summary>
+
+Windows 上的安装、Chromium 下载、Cookie 提取和 CDP 登录问题，请优先参考 [Windows 登录与安装排障](docs/windows-login-troubleshooting.md)。
 
 ```bash
 # 安装浏览器内核

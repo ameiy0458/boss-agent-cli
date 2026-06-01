@@ -304,6 +304,14 @@ If `boss` is not on PATH, override with `--boss-bin <path>` or set `BOSS_BIN=<pa
 
 ## Troubleshooting
 
+For Windows installation and login issues, also consult `docs/windows-login-troubleshooting.md` in this repository. Apply these rules before retrying live BOSS/Zhipin actions:
+
+- If `uv` is not recognized, install uv first and refresh `%USERPROFILE%\.local\bin` in PATH.
+- If `patchright` is not recognized, run browser installation through `uvx patchright install chromium` or verify caches with `uvx --from patchright patchright install --list`.
+- If QR login succeeds in the browser but fails with `Timeout 30000ms exceeded` while extracting credentials, switch to CDP login instead of repeating normal `boss login`.
+- If `boss login --cookie-source edge` or `boss login --cookie-source chrome` still opens Chromium, local Cookie extraction failed and the CLI fell back to patchright. Use CDP login.
+- On Windows Edge CDP, launch Edge with `--remote-debugging-port=9222 --remote-allow-origins=* --user-data-dir="%LOCALAPPDATA%\boss-agent-edge-cdp"`, then run `boss --cdp-url http://localhost:9222 login --cdp`.
+
 | Symptom | Likely cause | Fix |
 |---|---|---|
 | `unrecognized arguments: --verbose` | Global option placed after the subcommand | Put `--verbose` before `sync-all` or `sync-job` |
